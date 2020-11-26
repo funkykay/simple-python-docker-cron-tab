@@ -1,2 +1,2 @@
-* * * * * python3 /app/src/main.py >> /var/log/cron.log 2>&1
+* * * * * python3 /app/src/main.py > /proc/1/fd/1 2>/proc/1/fd/2
 # An empty line is required at the end of this file for a valid cron file.
