@@ -1,0 +1,14 @@
+#!/bin/bash
+
+logging "job starting"
+
+# load environment
+. <(xargs -0 bash -c 'printf "export %q\n" "$@"' -- < /proc/1/environ)
+
+# execute crawler with time measurement
+START_TIME=$(date +%s.%N)
+cd /app && python3 src/main.py
+END_TIME=$(date +%s.%N)
+EXEC_DURATION=$(echo "$END_TIME - $START_TIME" | bc)
+
+logging "job finished in $EXEC_DURATION sec"

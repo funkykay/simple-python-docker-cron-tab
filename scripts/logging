@@ -1,0 +1,3 @@
+#!/bin/bash
+
+echo -e $"$(printf "%s - %s - %s - %s\n" "$(date +'%Y-%d-%m %T')" "SYSTEM  " "INFO    " "$*")"
